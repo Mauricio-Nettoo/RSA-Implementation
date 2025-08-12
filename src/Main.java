@@ -1,6 +1,7 @@
 import java.lang.reflect.Array;
 import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Main {
     public static void main (String[] args) {
@@ -11,6 +12,8 @@ public class Main {
         BigInteger p = BigInteger.valueOf(2).pow(607).subtract(BigInteger.ONE);
 
         BigInteger n = p.multiply(q);
+
+
     }
 
     public static int findD(int e, int totient) {
@@ -42,5 +45,15 @@ public class Main {
 
     public static boolean isCoPrime(BigInteger x) {
         return x.equals(BigInteger.ONE);
+    }
+
+    public static BigInteger getRandomCoprime(BigInteger n) {
+        BigInteger i = BigInteger.ONE;
+        ArrayList<BigInteger> coPrimes = new ArrayList<>();
+        while (i.compareTo(n) < 0) {
+            if (isCoPrime(euclidesMDC(n, i))) coPrimes.add(i);
+            i = i.add(BigInteger.ONE);
+        }
+        return coPrimes.get(new Random().nextInt(coPrimes.size()));
     }
 }
