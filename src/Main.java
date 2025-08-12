@@ -39,4 +39,8 @@ public class Main {
         }
         return n1;
     }
+
+    public static boolean isCoPrime(BigInteger x) {
+        return x.equals(BigInteger.ONE);
+    }
 }
