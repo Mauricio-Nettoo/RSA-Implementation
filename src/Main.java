@@ -17,13 +17,13 @@ public class Main {
 
     }
 
-    public static int findD(int e, int totient) {
-        int i = 1;
+    public static BigInteger findD(BigInteger e, BigInteger totient) {
+        BigInteger i = BigInteger.ONE;
         while (true) {
-            if (e * i % totient == 1) {
+            if (e.multiply(i).mod(totient).equals(BigInteger.ONE)) {
                 return i;
             }
-            i++;
+            i = i.add(BigInteger.ONE);
         }
     }
 
