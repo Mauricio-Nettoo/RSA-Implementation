@@ -9,8 +9,6 @@ public class Main {
         BigInteger p = BigInteger.valueOf(2).pow(607).subtract(BigInteger.ONE);
 
         BigInteger n = p.multiply(q);
-
-
     }
 
     public static int findD(int e, int totient) {
@@ -21,5 +19,9 @@ public class Main {
             }
             i++;
         }
+    }
+
+    public static BigInteger totient(BigInteger n1, BigInteger n2) {
+        return n1.subtract(BigInteger.ONE).multiply(n2.subtract(BigInteger.ONE));
     }
 }
