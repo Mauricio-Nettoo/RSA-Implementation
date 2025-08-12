@@ -18,6 +18,10 @@ public class Main {
 
     }
 
+    public static BigInteger rsaEncrypt(BigInteger message) {}
+
+    public static BigInteger rsaDecrypt(BigInteger encryptedMessage) {}
+
     public static BigInteger findD(BigInteger e, BigInteger totient) {
         BigInteger i = BigInteger.ONE;
         while (true) {
