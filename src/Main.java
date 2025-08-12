@@ -13,6 +13,7 @@ public class Main {
 
         BigInteger n = p.multiply(q);
         BigInteger totientOfN = totient(q, p);
+        BigInteger e = getRandomCoprime(n);
 
     }
 
