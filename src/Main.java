@@ -18,7 +18,9 @@ public class Main {
 
     }
 
-    public static BigInteger rsaEncrypt(BigInteger message) {}
+    public static BigInteger rsaEncrypt(BigInteger message, BigInteger e, BigInteger n) {
+
+    }
 
     public static BigInteger rsaDecrypt(BigInteger encryptedMessage) {}
 
