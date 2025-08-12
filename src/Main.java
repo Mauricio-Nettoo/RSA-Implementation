@@ -28,12 +28,14 @@ public class Main {
     }
 
     public static BigInteger euclidesMDC(BigInteger n1, BigInteger n2) {
-        while (n1.compareTo(n2) != 0) {
-            if (n1.compareTo(n2) > 0) {
-                n1 = n1.subtract(n2);
-            } else {
-                n2 = n2.subtract(n1);
-            }
+        n1 = n1.abs();
+        n2 = n2.abs();
+        if (n1.equals(BigInteger.ZERO)) return n2;
+        if (n2.equals(BigInteger.ZERO)) return n1;
+        while (!n2.equals(BigInteger.ZERO)) {
+            BigInteger rest = n1.mod(n2);
+            n1 = n2;
+            n2 = rest;
         }
         return n1;
     }
