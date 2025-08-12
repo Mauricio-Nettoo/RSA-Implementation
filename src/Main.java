@@ -12,7 +12,7 @@ public class Main {
         BigInteger p = BigInteger.valueOf(2).pow(607).subtract(BigInteger.ONE);
 
         BigInteger n = p.multiply(q);
-
+        BigInteger totientOfN = totient(q, p);
 
     }
 
