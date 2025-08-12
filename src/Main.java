@@ -8,30 +8,32 @@ public class Main {
         System.out.println("Hello, World!");
 
         // Prime numbers
-        BigInteger q = BigInteger.valueOf(2).pow(521).subtract(BigInteger.ONE);
-        BigInteger p = BigInteger.valueOf(2).pow(607).subtract(BigInteger.ONE);
+//        BigInteger q = BigInteger.valueOf(2).pow(521).subtract(BigInteger.ONE);
+//        BigInteger p = BigInteger.valueOf(2).pow(607).subtract(BigInteger.ONE);
+        BigInteger q = BigInteger.valueOf(11);
+        BigInteger p = BigInteger.valueOf(3);
 
         BigInteger n = p.multiply(q);
         BigInteger totientOfN = totient(q, p);
         BigInteger e = getRandomCoprime(n);
         BigInteger d = findD(e, totientOfN);
 
+        System.out.println(rsaEncrypt(BigInteger.valueOf(9), e, n));
+
     }
 
     public static BigInteger rsaEncrypt(BigInteger message, BigInteger e, BigInteger n) {
-
+        return message.pow(e.intValue()).mod(n);
     }
 
-    public static BigInteger rsaDecrypt(BigInteger encryptedMessage) {}
+//    public static BigInteger rsaDecrypt(BigInteger encryptedMessage) {}
 
     public static BigInteger findD(BigInteger e, BigInteger totient) {
-        BigInteger i = BigInteger.ONE;
-        while (true) {
-            if (e.multiply(i).mod(totient).equals(BigInteger.ONE)) {
-                return i;
-            }
-            i = i.add(BigInteger.ONE);
+        if (totient.signum() <= 0) {
+            throw new IllegalArgumentException("totient must be positive");
         }
+        e = e.mod(totient);
+        return e.modInverse(totient);
     }
 
     public static BigInteger totient(BigInteger n1, BigInteger n2) {
